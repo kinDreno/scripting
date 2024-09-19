@@ -160,3 +160,17 @@
 
 // // TypeScript will show an error here because `badGreet` does not match `GreetFunction` type
 // // greeter(badGreet);
+ 
+const fetchData = (): Promise<string> => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Data fetched"), 1000);
+    });
+};
+
+fetchData()
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });

@@ -1,16 +1,14 @@
-// import { useState } from "react"
-
-import { Route, Routes } from "react-router-dom"
-
+import InGameTap from "./consist/tapGame Practice/InGame.tsx"
 
 function App() {
+
   
-  return (
-    
-    <Routes> 
-<Route></Route>
-    </Routes>
-  )
+return(
+  <>
+<InGameTap />
+  </>
+)
 }
 
-export default App
+
+export default App;
