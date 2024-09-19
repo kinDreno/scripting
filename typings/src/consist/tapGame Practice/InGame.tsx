@@ -43,30 +43,46 @@ const Game: React.FC = () => {
           <h1 className="font-bold siz">Click Per Minute Game!</h1>
           <PiCursor className="animate-bounce" size={40}/>
         </article>
-        <main className="border-l-4 border-r-4 mb-20 rounded-lg h-[20em] w-[50em] flex flex-col items-center justify-center">
-          <section>
-            {times.map((number, index) => (
-              <button
-                onClick={() => tappedTriggered(index)}
-                className="mx-3 pt-4 px-10 pb-4 border-2 rounded-md border-red-400 bg-gradient-to-r from-blue-500 to-purple-500"
-                key={index}
-                disabled={triggered} // Disable buttons when timer is running
-              >
-                {number}
-              </button>
-            ))}
-          </section>
-          <button
-            className="cursor-pointer"
-            onClick={increment}
-            disabled={!triggered} // Disable increment button when triggered is false
-          >
-            Click!
-          </button>
-          <button onClick={reset}>Stop</button>
-          <p>You tapped: {count} times!</p>
-          <p>Time: {time}</p>
-        </main>
+        <main className="border-l-4 border-r-4 rounded-lg h-[20em] w-[50em] flex flex-col items-center justify-center mb-20 p-5 space-y-5">
+  {/* Timer Buttons Section */}
+  <section className="flex space-x-5">
+    {times.map((number, index) => (
+      <button
+        onClick={() => tappedTriggered(index)}
+        className="px-8 py-4 border-2 rounded-md border-red-400 bg-gradient-to-r from-blue-500 to-purple-500"
+        key={index}
+        disabled={triggered} // Disable buttons when timer is running
+      >
+        {number} sec
+      </button>
+    ))}
+  </section>
+
+  {/* Buttons and Counter Display */}
+  <div className="flex flex-col items-center space-y-4">
+    <article className="flex space-x-4">
+      <button
+        className="cursor-pointer px-6 py-2 bg-blue-500 text-white rounded-md"
+        onClick={increment}
+        disabled={!triggered} // Disable increment button when triggered is false
+      >
+        Click!
+      </button>
+      <button
+        className="px-6 py-2 bg-red-500 text-white rounded-md"
+        onClick={reset}
+      >
+        Stop
+      </button>
+    </article>
+
+    <article className="flex space-x-4">
+      <p className="text-lg font-medium">You tapped: {count} times!</p>
+      <p className="text-lg font-medium">Time: {time} seconds</p>
+    </article>
+  </div>
+</main>
+
         <Footer />
       </div>
     </>
