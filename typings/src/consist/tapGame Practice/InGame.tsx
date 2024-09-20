@@ -20,7 +20,7 @@ const Game: React.FC = () => {
 
 function destruct() {
   const lists = setHistory([...history])
-  return lists
+  return lists;
 }
 destruct();
   function increment() {
